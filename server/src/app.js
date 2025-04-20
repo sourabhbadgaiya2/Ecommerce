@@ -1,3 +1,4 @@
+import cors from "cors";
 import morgan from "morgan";
 import express from "express";
 import cookieParser from "cookie-parser";
@@ -16,6 +17,8 @@ import categoryRoutes from "./routes/category.route.js";
 import ErrorHandler from "./middlewares/error.middleware.js";
 
 const app = express();
+
+app.use(cors());
 
 // Middlewares
 app.use(express.json());

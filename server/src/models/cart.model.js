@@ -7,7 +7,7 @@ var cartSchema = new mongoose.Schema(
         product: { type: mongoose.Schema.Types.ObjectId, ref: "Product" },
         count: Number,
         color: String,
-        price: NUmber,
+        price: Number,
       },
     ],
     cartTotal: {},

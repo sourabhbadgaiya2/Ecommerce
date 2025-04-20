@@ -1,4 +1,5 @@
 import cloudinary from "cloudinary";
+import config from "../config/env.config.js";
 
 cloudinary.config({
   cloud_name: config.CLOUD_NAME,

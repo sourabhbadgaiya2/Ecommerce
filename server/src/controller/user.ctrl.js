@@ -185,7 +185,7 @@ export const updateUser = asyncHandler(async (req, res) => {
 });
 
 //!save address
-const saveAddress = asyncHandler(async (req, res) => {
+export const saveAddress = asyncHandler(async (req, res) => {
   const { _id } = req.user;
   validateMongoDbID(_id);
   try {
