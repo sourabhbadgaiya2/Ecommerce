@@ -31,10 +31,10 @@ router.put(
   uploadImages
 );
 
-router.put("/update/:id", authMiddleware, isAdmin, updateBlog);
+router.put("/:id", authMiddleware, isAdmin, updateBlog);
 
 router.get("/:id", getBlog);
 
-router.delete("/delete/:id", authMiddleware, isAdmin, deleteBlog);
+router.delete("/:id", authMiddleware, isAdmin, deleteBlog);
 
 export default router;
