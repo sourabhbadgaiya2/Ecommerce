@@ -1,7 +1,8 @@
 import User from "../models/user.model.js";
 import Product from "../models/product.model.js";
 import asyncHandler from "express-async-handler";
-import validateMongoDbID from "../utils/validateMongoDbId.js";
+import validateMongoDbID from "../utils/validateMongodbId.js";
+
 import slugify from "slugify";
 import fs from "fs";
 import {

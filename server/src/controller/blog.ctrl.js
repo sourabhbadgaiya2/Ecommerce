@@ -1,7 +1,8 @@
 import AsyncHandler from "express-async-handler";
 import Blog from "../models/blog.model.js";
 import User from "../models/user.model.js";
-import validateMongoDbID from "../utils/validateMongoDbId.js";
+import validateMongoDbID from "../utils/validateMongodbId.js";
+
 import { cloudinaryUploadingImg } from "../utils/cloudinary.js";
 import fs from "fs";
 

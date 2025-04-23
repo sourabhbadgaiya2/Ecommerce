@@ -1,7 +1,8 @@
 import AsyncHandler from "express-async-handler";
 import Category from "../models/category.model.js";
 import User from "../models/user.model.js";
-import validateMongoDbID from "../utils/validateMongoDbId.js";
+import validateMongoDbID from "../utils/validateMongodbId.js";
+
 import BlogCategory from "../models/blogCart.model.js";
 
 export const createBlogCategory = AsyncHandler(async (req, res) => {

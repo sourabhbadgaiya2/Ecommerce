@@ -1,6 +1,7 @@
 import AsyncHandler from "express-async-handler";
 import User from "../models/user.model.js";
-import validateMongoDbID from "../utils/validateMongoDbId.js";
+import validateMongoDbID from "../utils/validateMongodbId.js";
+
 import Brand from "../models/brand.model.js";
 
 export const createBrand = AsyncHandler(async (req, res) => {
