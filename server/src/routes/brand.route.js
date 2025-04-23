@@ -10,14 +10,14 @@ import {
 
 const router = express.Router();
 
-router.post("/create", authMiddleware, isAdmin, createBrand);
+router.post("/", authMiddleware, isAdmin, createBrand);
 
-router.get("/get-category", getAllBrand);
+router.get("/", getAllBrand);
 
 router.get("/:id", getBrand);
 
-router.put("/update/:id", authMiddleware, isAdmin, updateBrand);
+router.put("/:id", authMiddleware, isAdmin, updateBrand);
 
-router.delete("/delete/:id", authMiddleware, isAdmin, deleteBrand);
+router.delete("/:id", authMiddleware, isAdmin, deleteBrand);
 
 export default router;

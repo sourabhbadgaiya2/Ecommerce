@@ -2,13 +2,14 @@ import React from "react";
 import { FiLinkedin, FiGithub, FiYoutube, FiInstagram } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
+// Updated FooterLinkGroup to use name & path
 const FooterLinkGroup = ({ title, links }) => (
-  <div className='col-3 col-md-2 mb-4'>
+  <div className='col-6 col-md-3 mb-4'>
     <h4 className='text-white mb-4'>{title}</h4>
     <div className='footer-links d-flex flex-column'>
-      {links.map((text, index) => (
-        <Link key={index} className='text-white py-2 mb-1' to='#'>
-          {text}
+      {links.map(({ name, path }, index) => (
+        <Link key={index} className='text-white py-2 mb-1' to={path}>
+          {name}
         </Link>
       ))}
     </div>
@@ -28,8 +29,8 @@ const Footer = () => {
               <img src='/images/newsletter.png' alt='Newsletter' width={30} />
               <h2 className='m-0 fs-4'>Sign Up for Newsletter</h2>
             </div>
-            <div className='col-md-7 mt-3 mt-md-0 '>
-              <form className='input-group border  rounded'>
+            <div className='col-md-7 mt-3 mt-md-0'>
+              <form className='input-group border rounded'>
                 <input
                   type='email'
                   className='form-control border-0 px-3 py-2'
@@ -37,7 +38,7 @@ const Footer = () => {
                   aria-label='Email address'
                   required
                 />
-                <button className='btn  px-4 rounded-end' type='submit'>
+                <button className='btn px-4 rounded-end' type='submit'>
                   Subscribe
                 </button>
               </form>
@@ -51,7 +52,7 @@ const Footer = () => {
         <div className='container-xxl'>
           <div className='row'>
             {/* Contact Info */}
-            <div className='col-md-4 mb-4'>
+            <div className='col-md-3 mb-4'>
               <h4 className='text-white mb-4'>Contact Us</h4>
               <address className='mb-2'>
                 Hno: 277 Near Vill Chopal, <br />
@@ -82,24 +83,33 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Footer Link Sections */}
+            {/* Footer Link Groups */}
             <FooterLinkGroup
               title='Information'
               links={[
-                "Privacy Policy",
-                "Refund Policy",
-                "Shipping Policy",
-                "Terms & Conditions",
-                "Blogs",
+                { name: "Privacy Policy", path: "/privacy-policy" },
+                { name: "Refund Policy", path: "/refund-policy" },
+                { name: "Shipping Policy", path: "/shipping-policy" },
+                { name: "Terms & Conditions", path: "/terms-conditions" },
+                { name: "Blogs", path: "/blogs" },
               ]}
             />
             <FooterLinkGroup
               title='Account'
-              links={["About Us", "FAQ", "Contact"]}
+              links={[
+                { name: "About Us", path: "/about" },
+                { name: "FAQ", path: "/faq" },
+                { name: "Contact", path: "/contact" },
+              ]}
             />
             <FooterLinkGroup
               title='Quick Links'
-              links={["Laptops", "Headphones", "Tablets", "Watches"]}
+              links={[
+                { name: "Laptops", path: "/laptops" },
+                { name: "Headphones", path: "/headphones" },
+                { name: "Tablets", path: "/tablets" },
+                { name: "Watches", path: "/watches" },
+              ]}
             />
           </div>
         </div>

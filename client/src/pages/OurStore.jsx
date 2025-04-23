@@ -3,6 +3,7 @@ import BreadCrumb from "../components/BreadCrumb";
 import ProductCard from "../components/ProductCard";
 import Meta from "../components/Meta";
 import StarRatings from "react-star-ratings";
+import Color from "../components/Color";
 
 const OurStore = () => {
   const [grid, setGrid] = useState(4);
@@ -75,19 +76,7 @@ const OurStore = () => {
 
                 {/* Colors */}
                 <h5 className='sub-title mt-3'>Colors</h5>
-                <ul className='list-inline d-flex flex-wrap gap-2 ps-0'>
-                  {[...Array(15)].map((_, index) => (
-                    <li
-                      key={index}
-                      className='rounded-circle border'
-                      style={{
-                        width: "20px",
-                        height: "20px",
-                        backgroundColor: "#ccc",
-                      }}
-                    ></li>
-                  ))}
-                </ul>
+                <Color />
 
                 {/* Size */}
                 <h5 className='sub-title mt-3'>Size</h5>

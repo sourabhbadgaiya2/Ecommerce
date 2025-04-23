@@ -10,14 +10,14 @@ import {
 
 const router = express.Router();
 
-router.post("/create", authMiddleware, isAdmin, createBlogCategory);
+router.post("/", authMiddleware, isAdmin, createBlogCategory);
 
-router.get("/get-category", getAllBlogCategory);
+router.get("/", getAllBlogCategory);
 
 router.get("/:id", getBlogCategory);
 
-router.put("/update/:id", authMiddleware, isAdmin, updateBlogCategory);
+router.put("/:id", authMiddleware, isAdmin, updateBlogCategory);
 
-router.delete("/delete/:id", authMiddleware, isAdmin, deleteBlogCategory);
+router.delete("/:id", authMiddleware, isAdmin, deleteBlogCategory);
 
 export default router;

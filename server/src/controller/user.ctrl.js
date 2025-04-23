@@ -86,10 +86,10 @@ export const loginAdmin = asyncHandler(async (req, res, next) => {
   res
     .status(200)
     .cookie("refreshToken", refreshToken, {
-      httpOnly: true,
-      maxAge: 3 * 24 * 60 * 60 * 1000, // 3 days
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "Strict",
+      // httpOnly: false,
+      // maxAge: 3 * 24 * 60 * 60 * 1000, // 3 days
+      // secure: process.env.NODE_ENV === "production",
+      // sameSite: "Strict",
     })
     .json({ message: "Login successful", accessToken, user: existingUser });
 });

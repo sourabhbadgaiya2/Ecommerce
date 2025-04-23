@@ -18,7 +18,12 @@ import ErrorHandler from "./middlewares/error.middleware.js";
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
 
 // Middlewares
 app.use(express.json());
@@ -28,7 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api/enq", enqRoutes);
-app.use("/api/auth", authRoutes);
+app.use("/api/user", authRoutes);
 app.use("/api/blog", blogRoutes);
 app.use("/api/order", orderRoutes);
 app.use("/api/color", colorRoutes);

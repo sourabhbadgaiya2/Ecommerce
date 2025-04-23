@@ -6,7 +6,8 @@ import BlogCategory from "../models/blogCart.model.js";
 
 export const createBlogCategory = AsyncHandler(async (req, res) => {
   try {
-    const newCategory = await Category.create(req.body);
+    const newCategory = await BlogCategory.create(req.body);
+
     res.status(201).json({
       newCategory,
     });
@@ -20,7 +21,6 @@ export const getBlogCategory = AsyncHandler(async (req, res) => {
   validateMongoDbID(id);
   try {
     const category = await BlogCategory.findById(id);
-
     res.json({ category });
   } catch (error) {
     throw new Error(error);
@@ -45,6 +45,7 @@ export const updateBlogCategory = AsyncHandler(async (req, res) => {
 export const getAllBlogCategory = AsyncHandler(async (req, res) => {
   try {
     const category = await BlogCategory.find();
+    console.log(category, "getblogCCat");
 
     res.json({ category });
   } catch (error) {

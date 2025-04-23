@@ -9,19 +9,22 @@ const Home = () => {
       {/* Blog Section */}
       <section className='blog-wrapper-2 pt-5 home-wrapper-2'>
         <div className='container-xxl'>
-          <div className='row mb-5'>
-            {[...Array(4)].map((_, index) => (
-              <div className='col-md-3' key={index}>
-                <BlogCard />
-              </div>
-            ))}
+          <div className='row'>
+            <div className='col-12'>
+              <h2 className='section-heading mb-4'>Latest Blogs</h2>
+            </div>
+            <BlogCard />
           </div>
         </div>
       </section>
 
-      <section className='blog-wrapper-2 pt-5 home-wrapper-2'>
+      {/* Product Section */}
+      <section className='product-wrapper pt-5 home-wrapper-2'>
         <div className='container-xxl'>
-          <div className='row mb-5'>
+          <div className='row'>
+            <div className='col-12'>
+              <h2 className='section-heading mb-4'>Featured Products</h2>
+            </div>
             <ProductCard />
           </div>
         </div>
@@ -30,15 +33,21 @@ const Home = () => {
       {/* Special Products Section */}
       <section className='special-wrapper py-5 home-wrapper-2'>
         <div className='container-xxl'>
-          <div className='row mb-4'>
+          <div className='row'>
             <div className='col-12'>
-              <h2 className='section-heading'>Special Products</h2>
+              <h2 className='section-heading mb-4'>Special Products</h2>
             </div>
-          </div>
-          <div className='flex flex-wrap'>
-            <SpecialProduct />
-            <SpecialProduct />
-            <SpecialProduct />
+            <div className='row'>
+              <div className='col-md-4 mb-4'>
+                <SpecialProduct />
+              </div>
+              <div className='col-md-4 mb-4'>
+                <SpecialProduct />
+              </div>
+              <div className='col-md-4 mb-4'>
+                <SpecialProduct />
+              </div>
+            </div>
           </div>
         </div>
       </section>

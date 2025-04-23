@@ -7,7 +7,7 @@ import {
   FiMenu,
 } from "react-icons/fi";
 import { MdCompareArrows } from "react-icons/md";
-import { Link, NavLink } from "react-router-dom";
+import { Link, Links, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -41,30 +41,42 @@ const Header = () => {
 
           {/* Icons */}
           <div className='d-flex align-items-center text-center gap-4'>
-            <div className='text-light d-flex align-items-center gap-2 small'>
+            <Link
+              to={"/compare-products"}
+              className='text-light d-flex align-items-center gap-2 small'
+            >
               <MdCompareArrows size={20} />
               <div>
                 Compare <br /> Products
               </div>
-            </div>
-            <div className='text-light small d-flex align-items-center gap-2'>
+            </Link>
+            <Link
+              to={"/wishlist"}
+              className='text-light small d-flex align-items-center gap-2'
+            >
               <FiHeart size={20} />
               <div>
                 Favourite <br /> Wishlist
               </div>
-            </div>
-            <div className='text-light small d-flex text-left align-items-center gap-2'>
+            </Link>
+            <Link
+              to={"/login"}
+              className='text-light small d-flex text-left align-items-center gap-2'
+            >
               <FiUser size={20} />
               <div>
                 Log In <br /> My Account
               </div>
-            </div>
-            <div className='text-light small d-flex align-items-center gap-2'>
+            </Link>
+            <Link
+              to={"/cart"}
+              className='text-light small d-flex align-items-center gap-2'
+            >
               <FiShoppingCart size={20} />
               <div>
                 0 <br /> $0.00
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

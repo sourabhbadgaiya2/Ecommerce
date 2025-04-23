@@ -16,7 +16,7 @@ export const authMiddleware = AsyncHandler(async (req, res, next) => {
       next();
     } catch (error) {
       res.status(401);
-      console.log(error.message)
+      console.log(error.message, "midd");
       throw new Error("Not authorized, token failed, Please login again");
     }
   } else {

@@ -16,29 +16,33 @@ import { productImgResize, uploadPhoto } from "../middlewares/uploadImages.js";
 
 const router = express.Router();
 
-router.post("/create", authMiddleware, isAdmin, createProduct);
+router.post("/", authMiddleware, isAdmin, createProduct);
 
-router.get("/get-product", getAllProducts);
+router.get("/", getAllProducts);
 
 router.put("/wishlist", authMiddleware, addToWishList);
 
 router.put("/rating", authMiddleware, rating);
 
-router.put(
+router.post(
   "/upload",
-  authMiddleware,
-  isAdmin,
+  // authMiddleware,
+  // isAdmin,
   uploadPhoto.array("images", 10),
-  productImgResize,
   uploadImages
 );
 
 router.get("/:id", getProductById);
 
-router.put("/update/:id", authMiddleware, isAdmin, updateProducts);
+router.put("/:id", authMiddleware, isAdmin, updateProducts);
 
-router.delete("/delete/:id", authMiddleware, isAdmin, deleteProducts);
+router.delete("/:id", authMiddleware, isAdmin, deleteProducts);
 
-router.delete("/delete-img/:id", authMiddleware, isAdmin, deleteUploadImages);
+router.delete(
+  "/upload/delete-img/:id",
+  authMiddleware,
+  isAdmin,
+  deleteUploadImages
+);
 
 export default router;

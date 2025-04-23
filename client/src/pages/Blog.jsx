@@ -27,12 +27,7 @@ const Blog = () => {
             {/* Blog Cards */}
             <div className='col-9'>
               <div className='row'>
-                <div className='col-6 mb-3'>
-                  <BlogCard />
-                </div>
-                <div className='col-6 mb-3'>
-                  <BlogCard />
-                </div>
+                <BlogCard />
               </div>
             </div>
           </div>

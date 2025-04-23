@@ -3,9 +3,27 @@ import sharp from "sharp";
 import path from "path";
 import fs from "fs";
 
+const paths =
+  "D:\\web development\\CODE\\Ecommerce\\server\\src\\public\\images\\products\\images-1745258914658-306335664.jpeg";
+
+if (fs.existsSync(paths)) {
+  console.log("File exists");
+  // Proceed with unlink operation
+} else {
+  console.log("File does not exist");
+}
+
+import { fileURLToPath } from "url";
+
+// ESM-compatible __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+
 const multerStorage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../public/images"));
+    cb(null, path.join(__dirname, "../public/images/products"));
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);

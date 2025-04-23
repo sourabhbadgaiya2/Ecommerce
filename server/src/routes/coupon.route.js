@@ -10,14 +10,14 @@ import {
 
 const router = express.Router();
 
-router.post("/create", authMiddleware, isAdmin, createCoupon);
+router.post("/", authMiddleware, isAdmin, createCoupon);
 
-router.get("/get-category", getAllCoupon);
+router.get("/", getAllCoupon);
 
 router.get("/:id", getCoupon);
 
-router.put("/update/:id", authMiddleware, isAdmin, updateCoupon);
+router.put("/:id", authMiddleware, isAdmin, updateCoupon);
 
-router.delete("/delete/:id", authMiddleware, isAdmin, deleteCoupon);
+router.delete("/:id", authMiddleware, isAdmin, deleteCoupon);
 
 export default router;

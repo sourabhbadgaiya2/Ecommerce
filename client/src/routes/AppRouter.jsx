@@ -6,6 +6,13 @@ import Contact from "../pages/Contact";
 import Home from "../pages/Home";
 import OurStore from "../pages/OurStore";
 import Blog from "../pages/Blog";
+import CompareProducts from "../pages/CompareProducts";
+import Wishlist from "../pages/Wishlist";
+import Login from "../pages/Login";
+import ForgotPassword from "../pages/ForgotPassword";
+import Signup from "../pages/Signup";
+import ResetPassword from "../pages/ResetPassword";
+import SingleBlog from "../pages/SingleBlog";
 
 const AppRouter = () => {
   return (
@@ -17,6 +24,13 @@ const AppRouter = () => {
           <Route path='contact' element={<Contact />} />
           <Route path='store' element={<OurStore />} />
           <Route path='blogs' element={<Blog />} />
+          <Route path='blog/:id' element={<SingleBlog />} />
+          <Route path='wishlist' element={<Wishlist />} />
+          <Route path='login' element={<Login />} />
+          <Route path='signup' element={<Signup />} />
+          <Route path='forgot-password' element={<ForgotPassword />} />
+          <Route path='reset-password' element={<ResetPassword />} />
+          <Route path='compare-products' element={<CompareProducts />} />
         </Route>
       </Routes>
     </div>

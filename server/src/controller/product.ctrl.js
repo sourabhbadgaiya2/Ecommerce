@@ -94,6 +94,7 @@ export const getAllProducts = asyncHandler(async (req, res) => {
   if (skip >= totalProducts) {
     throw new Error("This page does not exist");
   }
+  
 
   query = query.skip(skip).limit(limit);
 
@@ -201,43 +202,89 @@ export const rating = asyncHandler(async (req, res) => {
   }
 });
 
+// export const uploadImages = asyncHandler(async (req, res) => {
+//   // const { id } = req.params;
+//   // validateMongoDbID(id);
+//   try {
+//     const uploader = (path) => cloudinaryUploadingImg(path, "images");
+//     const urls = [];
+//     const files = req.files;
+
+//     for (const file of files) {
+//       const { path } = file;
+//       const newPath = await uploader(path);
+//       urls.push(newPath);
+//       fs.unlinkSync(path);
+//     }
+//     const images = urls.map((file) => {
+//       return file;
+//     });
+
+//     // const findProduct = await Product.findByIdAndUpdate(
+//     //   id,
+//     //   {
+//     //     images: urls.map((file) => {
+//     //       return file;
+//     //     }),
+//     //   },
+//     //   { new: true }
+//     // );
+
+//     res.json(images);
+//   } catch (error) {
+//     throw new Error(error);
+//   }
+// });
+
+// export const deleteUploadImages = asyncHandler(async (req, res) => {
+//   const { id } = req.params;
+//   validateMongoDbID(id);
+//   try {
+//     const uploader = cloudinaryDeleteImg(id, "images");
+//     res.json({ message: "Deleted" });
+//   } catch (error) {
+//     throw new Error(error);
+//   }
+// });
+
+
 export const uploadImages = asyncHandler(async (req, res) => {
-  // const { id } = req.params;
-  // validateMongoDbID(id);
   try {
     const uploader = (path) => cloudinaryUploadingImg(path, "images");
     const urls = [];
     const files = req.files;
 
+    if (!files || files.length === 0) {
+      return res.status(400).json({ message: "No files uploaded" });
+    }
+
     for (const file of files) {
       const { path } = file;
+
+      // Cloudinary upload
       const newPath = await uploader(path);
+      console.log(newPath, "Files");
       urls.push(newPath);
-      fs.unlinkSync(path);
+
+      // Delete file after upload
+      fs.unlink(path, (err) => {
+        if (err) {
+          console.error(`Error deleting file ${path}:`, err);
+        }
+      });
     }
-    const images = urls.map((file) => {
-      return file;
-    });
 
-    // const findProduct = await Product.findByIdAndUpdate(
-    //   id,
-    //   {
-    //     images: urls.map((file) => {
-    //       return file;
-    //     }),
-    //   },
-    //   { new: true }
-    // );
-
-    res.json(images);
+    // Return image URLs
+    res.json(urls);
   } catch (error) {
-    throw new Error(error);
+    console.error("Error in uploading images:", error);
+    res.status(500).json({ message: "Failed to upload images", error: error.message });
   }
 });
 
 export const deleteUploadImages = asyncHandler(async (req, res) => {
   const { id } = req.params;
-  validateMongoDbID(id);
+
   try {
     const uploader = cloudinaryDeleteImg(id, "images");
     res.json({ message: "Deleted" });

@@ -10,14 +10,14 @@ import {
 
 const router = express.Router();
 
-router.post("/create", authMiddleware, isAdmin, createCategory);
+router.post("/", authMiddleware, isAdmin, createCategory);
 
 router.get("/get-category", getAllCategory);
 
 router.get("/:id", getCategory);
 
-router.put("/update/:id", authMiddleware, isAdmin, updateCategory);
+router.put("/:id", authMiddleware, isAdmin, updateCategory);
 
-router.delete("/delete/:id", authMiddleware, isAdmin, deleteCategory);
+router.delete("/:id", authMiddleware, isAdmin, deleteCategory);
 
 export default router;

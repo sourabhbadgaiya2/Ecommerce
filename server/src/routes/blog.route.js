@@ -14,11 +14,11 @@ import { productImgResize, uploadPhoto } from "../middlewares/uploadImages.js";
 
 const router = express.Router();
 
-router.post("/create", authMiddleware, isAdmin, createBlog);
+router.post("/", authMiddleware, isAdmin, createBlog);
 
 router.put("/likes", authMiddleware, likeBlog);
 
-router.get("/get-all", getAllBlog);
+router.get("/", getAllBlog);
 
 router.put("/dislikes", authMiddleware, disLikeBlog);
 
