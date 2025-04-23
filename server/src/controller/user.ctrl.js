@@ -8,7 +8,7 @@ import Coupon from "../models/coupon.model.js";
 import config from "../config/env.config.js";
 import asyncHandler from "express-async-handler";
 import Product from "../models/product.model.js";
-import validateMongoDbID from "../utils/validateMongoDbId.js";
+import validateMongoDbID from "../utils/validateMongodbId.js";
 
 export const createUser = asyncHandler(async (req, res, next) => {
   const { firstName, lastName, email, mobile, password } = req.body;
